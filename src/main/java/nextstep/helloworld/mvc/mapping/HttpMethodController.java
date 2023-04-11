@@ -9,13 +9,18 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@RequestMapping("http-method")
 public class HttpMethodController {
 
+    @PostMapping("users")
+    // ResponseEntity는 HttpStatus를 설정해주기 위한 래퍼
+    // HttpEntity + HttpStatus == ResponseEntity
     public ResponseEntity createUser(@RequestBody User user) {
         Long id = 1L;
         return ResponseEntity.created(URI.create("/users/" + id)).build();
     }
 
+    @GetMapping("users")
     public ResponseEntity<List<User>> showUser() {
         List<User> users = Arrays.asList(
                 new User("이름", "email"),
