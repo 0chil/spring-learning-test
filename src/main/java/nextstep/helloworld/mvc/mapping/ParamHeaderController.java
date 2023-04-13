@@ -14,7 +14,7 @@ public class ParamHeaderController {
         return ResponseEntity.ok().body("message");
     }
 
-    @GetMapping(value = "/message", params = "name=hello") // 파라미터 검사(값이 있는지, 지정된 값인지)
+    @GetMapping(value = "/message", params = "name=hello") // 쿼리 파라미터 검사(값이 있는지, 지정된 값인지)
     public ResponseEntity<String> messageForParam() {
         return ResponseEntity.ok().body("hello");
     }

@@ -13,7 +13,7 @@ import java.util.List;
 public class MethodArgumentController {
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> requestParam(String userName) {
+    public ResponseEntity<List<User>> requestParam(@RequestParam(name = "name") String userName) {
         List<User> users = Arrays.asList(
                 new User(userName, "email"),
                 new User(userName, "email")
